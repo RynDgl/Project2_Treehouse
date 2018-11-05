@@ -2,23 +2,20 @@
 TreeHouse Project 2
 League Builder
 Ryan Daigle
-Attempting and exceeds standards grade.
-"""
-
-"""
-5. Clearly commented code and PEP 8 implementation.
+Attempting an exceeds standards grade.
 """
 import csv
 
 def create_team_file(stuff, file_name):
     """
     Creates a file from the parameter file_name and writes to the file the value of
-    stuff
-    Can also be used to write to an existing file without truncating the file.
+    stuff to create an evenly divided set of teams with equal experience.
     """
+    #create the the file
     with open(file_name, "a") as file:
         for i in stuff:           
             for item in i:
+                # creates the team
                 if i.index(item) == 0:
                     file.write("-" * 30)
                     file.write("\n")
@@ -26,7 +23,8 @@ def create_team_file(stuff, file_name):
                     file.write( "\n")
                     file.write("-" * 30)
                     file.write( "\n")
-                else:                   
+                else:
+                    # writes the players to the team
                     for j in item:
                         file.write(j)
                         if item.index(j) == 3:
@@ -37,9 +35,8 @@ def create_team_file(stuff, file_name):
 
 def read_csv(thing):
     """
-    Opens and displays thing a csv files contents by row and joins the objects in each row
-    with a comma and places them on single line.
-    
+    Opens and displays thing a csv files contents by row and returns them as one
+    list of lists.
     """
     with open(thing, newline='') as csvfile:
         
@@ -61,8 +58,9 @@ def show_file(thing):
 def team_create(rows):
     """
     Creates teams and assigns players to those teams.
-    takes a sings row of a csv file and reads its.
+    takes a list of rows from a csv file and reads it.
     """
+    # initiates variables
     experienced = []
     inexperienced = []
     dragons= ['Dragons']
@@ -70,6 +68,7 @@ def team_create(rows):
     sharks = ['Sharks']
     teams = [sharks, dragons, raptors]
     
+    # divides players evenly into teams
     for row in rows:
         if "YES" in row:
             experienced.append(row)
@@ -77,7 +76,7 @@ def team_create(rows):
             inexperienced.append(row)
         else:
             pass
-    
+    # pops 3 experienced and inexperienced players and adds them to the current team.
     for team in teams:
         i = 0
         for i in range(0,3):
