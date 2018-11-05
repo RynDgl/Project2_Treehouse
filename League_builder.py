@@ -2,17 +2,11 @@
 TreeHouse Project 2
 League Builder
 Ryan Daigle
+Attempting and exceeds standards grade.
 """
 
 """
-1. Outputs a text file named teams.txt **(done)**
-    a. Create 18 additional text files for letters to guardians
-    b. additional files include guardian(s) name(s), player's name,
-        team name, and date & time of first practice.
-2. teams.txt file includes all three team names **(done)**
-3. teams.txt  file includes the same number of players on each team **(done)**
-4. teams.txt file evenly divides the teams by player experience level **(done)**
-5. Clearly commented code
+5. Clearly commented code and PEP 8 implementation.
 """
 import csv
 
@@ -117,13 +111,10 @@ def create_guardians_letter(info):
                                   "The first practice will be on 11/15/2018 "
                                   "at 6:00 PM EST.".format(guardian, orig_player, team))
                 with open(player, "a") as file:
-                    file.write(to_write)
-                        
+                    file.write(to_write)                        
                             
-
 if __name__ == "__main__":
     TEAMS = team_create(read_csv("soccer_players.csv"))
     create_team_file(TEAMS,"teams.txt")
     create_guardians_letter(TEAMS)
-    
     
